@@ -1,25 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {BrowserRouter, Link, Route, Switch} from "react-router-dom";
+
+import RestAPI from "./Components/RestAPI";
+import PostDetail from "./Components/PostDetail";
+import AddNewPost from "./Components/AddNewPost";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <Switch>
+
+      <Route exact path='/rest-api'>
+      <RestAPI/>
+      </Route>
+
+      <Route exact path='/post-detail/:id'>
+      <PostDetail/>
+      </Route>
+
+
+      <Route exact path='/add-new-post/'>
+      <AddNewPost/>
+      </Route>
+
+      </Switch>
+      </BrowserRouter>
+
   );
 }
 
